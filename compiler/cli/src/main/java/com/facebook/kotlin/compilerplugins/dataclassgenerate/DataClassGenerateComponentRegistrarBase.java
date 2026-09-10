@@ -10,10 +10,8 @@ package com.facebook.kotlin.compilerplugins.dataclassgenerate;
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar;
 
 /**
- * Java base class for DataClassGenerateComponentRegistrar to provide pluginId compatibility across
- * Kotlin versions. In Kotlin 2.3+, CompilerPluginRegistrar has an abstract pluginId property. In
- * Kotlin 2.1, it does not. Java's method resolution handles both: getPluginId() satisfies the
- * abstract property in 2.3+ and is harmless in 2.1.
+ * CompilerPluginRegistrar has an abstract pluginId property in Kotlin 2.3+ but not in 2.2. Java
+ * method resolution satisfies both; Kotlin cannot.
  */
 @SuppressWarnings({"deprecation", "PackageLocationMismatch"})
 public abstract class DataClassGenerateComponentRegistrarBase extends CompilerPluginRegistrar {
